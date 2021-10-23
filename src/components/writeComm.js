@@ -37,7 +37,6 @@ class WriteComm extends React.Component {
             <Row>
                 <Form.Select aria-label="Default select example" onChange={this.handleSelect}>
                 <option>Open this select menu</option>
-                <option value="1">One</option>
                 {
                     Object.keys(this.props.value).map(element => (
                         <option value={element}>{element} </option>

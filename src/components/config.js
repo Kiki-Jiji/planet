@@ -6,10 +6,10 @@ class Config extends Component {
   state = {
     questions: [{
         blockName: 'Block Name',
-        desc: 'Some text',
+        desc: 'A descrption of the block goes here',
         wordLimit: 100,
     }],
-    formName : "example"
+    formName : "Example Form Name"
   }
 
   handleText = i => e => {
