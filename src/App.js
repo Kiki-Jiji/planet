@@ -12,32 +12,35 @@ import { MainPage, WriteComm, Config, EditForms} from './components';
 
 class App extends Component {
 
-  state = {
-    venus : [
-        {
-            blockName: 'test one',
-            desc: 'testing letters',
-            wordLimit: 100,
-        },
-        {
-            blockName: 'test two',
-            desc: 'Some text',
-            wordLimit: 100,
-        }
-    ],
-    mercury : [
-        {
-            blockName: 'test two',
-            desc: 'Some text',
-            wordLimit: 100,
-        },
-        {
-            blockName: 'test two',
-            desc: 'Some text',
-            wordLimit: 100,
-        }
-    ]
-  } 
+  
+state = {
+  forms : {
+      venus : [
+          {
+              blockName: 'test one',
+              desc: 'testing letters',
+              wordLimit: 100,
+          },
+          {
+              blockName: 'test two',
+              desc: 'Some text',
+              wordLimit: 100,
+          }
+      ],
+      mercury : [
+          {
+              blockName: 'test two',
+              desc: 'Some text',
+              wordLimit: 100,
+          },
+          {
+              blockName: 'test two',
+              desc: 'Some text',
+              wordLimit: 100,
+          }
+      ]
+  }
+} 
 
     handleLoad = e => {
         (async () => {
@@ -57,6 +60,14 @@ class App extends Component {
               })();
     }
 
+    handleDeletingForm = form => {
+      // e.preventDefault()
+      console.log(form)
+      let currentState = {...this.state.forms}
+      delete currentState[form]
+      this.setState({forms: currentState})
+  }
+
   render() {
     return (
       <div className="App">
@@ -75,9 +86,9 @@ class App extends Component {
             </div>
           <Switch>
             <Route path="/" exact component = {() => <MainPage/>} />
-            <Route path="/write" exact component ={() => <WriteComm value={this.state}/>} />
-            <Route path="/config" exact component ={() => <Config value={this.state}/>} />
-            <Route path="/Edit" exact component = {() => <EditForms value ={this.state}/>} />
+            <Route path="/write" exact component ={() => <WriteComm value={this.state.forms}/>} />
+            <Route path="/config" exact component ={() => <Config value={this.state.forms}/>} />
+            <Route path="/Edit" exact component = {() => <EditForms value ={this.state.forms} handleDeletingForm ={this.handleDeletingForm}   />} />
           </Switch>
           </HashRouter>
       </div>

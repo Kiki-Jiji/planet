@@ -19,14 +19,14 @@ class EditForms extends React.Component {
         
     }
 
-    handleDeletingForm = e => {
-        e.preventDefault()
-    }
 
     render() {
         let deleteOption = ''
         if(this.state.formToDelete != ''){
-            deleteOption = <DeleteForm value={this.state.formToDelete}/>
+            deleteOption = <DeleteForm  
+            value={this.state.formToDelete}
+            delete={this.props.handleDeletingForm}    
+            />
         }
 
         return(
@@ -54,10 +54,13 @@ class EditForms extends React.Component {
 
 export default EditForms;
 
-function DeleteForm(props){
+class DeleteForm extends React.Component { 
+
+    render() {
     return(
         <Row>
-             <h2>{props.value} <Button onClick={this.handleDeletingForm} variant="danger">Delete Form?</Button>  </h2> 
+             <h2>{this.props.value} <Button onClick={() => this.props.delete(this.props.value)} variant="danger">Delete Form?</Button>  </h2> 
         </Row>
     )
+    }
 }
