@@ -55,14 +55,6 @@ class Config extends Component {
     })
   }
 
-  save_state = e => {
-
-    let data = this.props.value
-    data[this.state.formName] = this.state.questions
-    
-    window.config.save_state(data);
-  }
-
   handleFormName = e => {
     this.setState({formName: e.target.value})
     console.log(this.state.formName)
@@ -103,7 +95,7 @@ class Config extends Component {
           <button class="btn btn-primary" onClick={this.addQuestion}>Add New Block</button>
         </div>
         <div class="col-auto">
-          <button class="btn btn-primary" onClick={this.save_state}>Save Form</button>
+          <button class="btn btn-primary" onClick={() => this.props.addForm(this.state)}>Save Form</button>
         </div>
         </div>
     </div>

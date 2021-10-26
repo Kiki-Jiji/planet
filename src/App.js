@@ -42,30 +42,33 @@ state = {
   }
 } 
 
+  saveState = e => {
+
+    let data = this.state.forms
+
+    window.config.save_state(data);
+  }
+
     handleLoad = e => {
         (async () => {
             const data = await window.config.content;
+            console.log(data)
 
-            Object.keys(data).map( elem => {
+            this.setState({forms: data})
 
-              let keyName = elem 
-              let df = data[elem]
-
-              this.setState({
-                [keyName]: df
-              })
-            }
-           
-            )
               })();
     }
 
     handleDeletingForm = form => {
-      // e.preventDefault()
-      console.log(form)
       let currentState = {...this.state.forms}
       delete currentState[form]
       this.setState({forms: currentState})
+  }
+
+  addForm = form => {
+    let currentState = {...this.state.forms}
+    currentState[form.formName] = form.questions
+    this.setState({forms: currentState})
   }
 
   render() {
@@ -76,6 +79,7 @@ state = {
           </p>
 
           <Button variant="primary" onClick={this.handleLoad}>Load</Button>
+          <Button variant="primary" onClick={this.saveState}>Save</Button>
 
           <HashRouter>
             <div>
@@ -87,7 +91,7 @@ state = {
           <Switch>
             <Route path="/" exact component = {() => <MainPage/>} />
             <Route path="/write" exact component ={() => <WriteComm value={this.state.forms}/>} />
-            <Route path="/config" exact component ={() => <Config value={this.state.forms}/>} />
+            <Route path="/config" exact component ={() => <Config value={this.state.forms} addForm={this.addForm}/>} />
             <Route path="/Edit" exact component = {() => <EditForms value ={this.state.forms} handleDeletingForm ={this.handleDeletingForm}   />} />
           </Switch>
           </HashRouter>
