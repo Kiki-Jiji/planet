@@ -59,9 +59,8 @@ state = {
       let currentState = {...this.state.forms}
       delete currentState[form]
       this.setState({forms: currentState})
-
-      let data = this.state.forms
-      window.config.saveApp(data);
+      
+      window.config.saveApp(currentState);
   }
 
   addForm = form => {

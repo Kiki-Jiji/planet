@@ -50,6 +50,7 @@ ipcMain.on("save", (e, state) => {
   })
 
   ipcMain.on("saveApp", (e, state) => {
+    console.log(state)
 
     writeFile('config.json', JSON.stringify(state), function(err){
         console.log("App config saved")
