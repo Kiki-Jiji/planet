@@ -17,39 +17,38 @@ state = {
   forms : {
       venus : [
           {
-              blockName: 'test one',
-              desc: 'testing letters',
+              blockName: 'Planet Count',
+              desc: 'The number of planets',
               wordLimit: 100,
           },
           {
-              blockName: 'test two',
-              desc: 'Some text',
+              blockName: 'Breakdown of planets by type',
+              desc: 'which are big and which are less big',
               wordLimit: 100,
           }
       ],
       mercury : [
           {
-              blockName: 'test two',
-              desc: 'Some text',
+              blockName: 'Headline GDP',
+              desc: 'This is how GDP does that thingy',
               wordLimit: 100,
           },
           {
-              blockName: 'test two',
-              desc: 'Some text',
+              blockName: 'Breakdown of GDP by dog breed',
+              desc: 'Each dog has its own GDP cause thats how GDP works',
               wordLimit: 100,
           }
       ]
   }
 } 
 
-  saveState = e => {
+  // saveState = e => {
 
-    let data = this.state.forms
+  //   let data = this.state.forms
+  //   window.config.save_state(data);
+  // }
 
-    window.config.save_state(data);
-  }
-
-    handleLoad = e => {
+  handleLoad = e => {
         (async () => {
             const data = await window.config.content;
             console.log(data)
@@ -71,6 +70,10 @@ state = {
     this.setState({forms: currentState})
   }
 
+  saveCommentary = form => {
+    window.config.save_state(form);
+  }
+
   render() {
     return (
       <div className="App">
@@ -90,7 +93,7 @@ state = {
             </div>
           <Switch>
             <Route path="/" exact component = {() => <MainPage/>} />
-            <Route path="/write" exact component ={() => <WriteComm value={this.state.forms}/>} />
+            <Route path="/write" exact component ={() => <WriteComm value={this.state.forms} saveCommentary={this.saveCommentary} />} />
             <Route path="/config" exact component ={() => <Config value={this.state.forms} addForm={this.addForm}/>} />
             <Route path="/Edit" exact component = {() => <EditForms value ={this.state.forms} handleDeletingForm ={this.handleDeletingForm}   />} />
           </Switch>

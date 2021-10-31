@@ -10,8 +10,6 @@ function createWindow() {
          height: 600 ,
          webPreferences: {
             preload: path.join(__dirname, 'preload.js'),
-            allowRunningInsecureContent: true,
-            webSecurity: false
           }});
         win.loadFile('index.html');
         win.on('closed', () => {
@@ -42,8 +40,10 @@ app.on('activate', () => {
 ipcMain.on("save", (e, state) => {
     console.log('save');
     console.log(state)
+
+    let name = state.formName + '.json'
   
-    writeFile("config.json", JSON.stringify(state), function(err){
+    writeFile(name, JSON.stringify(state), function(err){
         console.log("done")
     })
   
@@ -54,20 +54,6 @@ ipcMain.on("save", (e, state) => {
     
       let appState = JSON.parse(data)
       
-    //   formName = venus_prev.NAME
-    //   delete venus_prev.NAME
-  
-    //   let con = []
-    //   for (com in venus_prev) {
-    //       console.log(com)
-    //       con.push(venus_prev[com])
-    //   };
-    
-    //   const state = {
-    //       blocks: con,
-    //       formName: formName,
-    //   }
-  
       return appState
     }
   
