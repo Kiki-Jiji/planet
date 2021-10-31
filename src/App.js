@@ -12,41 +12,38 @@ import { MainPage, WriteComm, Config, EditForms} from './components';
 
 class App extends Component {
 
+  componentDidMount() {
+    this.handleLoad()
+  }
   
 state = {
   forms : {
-      venus : [
-          {
-              blockName: 'Planet Count',
-              desc: 'The number of planets',
-              wordLimit: 100,
-          },
-          {
-              blockName: 'Breakdown of planets by type',
-              desc: 'which are big and which are less big',
-              wordLimit: 100,
-          }
-      ],
-      mercury : [
-          {
-              blockName: 'Headline GDP',
-              desc: 'This is how GDP does that thingy',
-              wordLimit: 100,
-          },
-          {
-              blockName: 'Breakdown of GDP by dog breed',
-              desc: 'Each dog has its own GDP cause thats how GDP works',
-              wordLimit: 100,
-          }
-      ]
+  //     venus : [
+  //         {
+  //             blockName: 'Planet Count',
+  //             desc: 'The number of planets',
+  //             wordLimit: 100,
+  //         },
+  //         {
+  //             blockName: 'Breakdown of planets by type',
+  //             desc: 'which are big and which are less big',
+  //             wordLimit: 100,
+  //         }
+  //     ],
+  //     mercury : [
+  //         {
+  //             blockName: 'Headline GDP',
+  //             desc: 'This is how GDP does that thingy',
+  //             wordLimit: 100,
+  //         },
+  //         {
+  //             blockName: 'Breakdown of GDP by dog breed',
+  //             desc: 'Each dog has its own GDP cause thats how GDP works',
+  //             wordLimit: 100,
+  //         }
+  //     ]
   }
 } 
-
-  // saveState = e => {
-
-  //   let data = this.state.forms
-  //   window.config.save_state(data);
-  // }
 
   handleLoad = e => {
         (async () => {
@@ -62,17 +59,30 @@ state = {
       let currentState = {...this.state.forms}
       delete currentState[form]
       this.setState({forms: currentState})
+
+      let data = this.state.forms
+      window.config.saveApp(data);
   }
 
   addForm = form => {
     let currentState = {...this.state.forms}
     currentState[form.formName] = form.questions
     this.setState({forms: currentState})
+
+    let data2 = this.state.forms
+    window.config.saveApp(data2);
+
   }
 
   saveCommentary = form => {
     window.config.save_state(form);
   }
+
+  // saveState = e => {
+
+  //   let data = this.state.forms
+  //   window.config.save_state(data);
+  // }
 
   render() {
     return (
@@ -81,8 +91,8 @@ state = {
             Planet <Badge bg="secondary">New</Badge>
           </p>
 
-          <Button variant="primary" onClick={this.handleLoad}>Load</Button>
-          <Button variant="primary" onClick={this.saveState}>Save</Button>
+          {/* <Button variant="primary" onClick={this.handleLoad}>Load</Button>
+          <Button variant="primary" onClick={this.saveState}>Save</Button> */}
 
           <HashRouter>
             <div>

@@ -48,6 +48,14 @@ ipcMain.on("save", (e, state) => {
     })
   
   })
+
+  ipcMain.on("saveApp", (e, state) => {
+
+    writeFile('config.json', JSON.stringify(state), function(err){
+        console.log("App config saved")
+    })
+  
+  })
   
   const loadContent = () => {
       let data = readFileSync('config.json')
