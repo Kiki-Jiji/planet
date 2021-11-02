@@ -11,3 +11,35 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+.intro {
+
+  background-image: url('./landing_page2.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 1000px;
+}
+
+.intro h1 {
+  font-family: "Raleway", sans-serif;
+  color: rgb(255, 255, 255);
+  font-size: 82px;
+  text-transform: uppercase;
+  line-height: 200px;
+}
+
+.intro p {
+  font-family: "Raleway", sans-serif;
+  color: #fff;
+  font-size: 22px;
+  font-weight: 300;
+  line-height: 30px;
+}
+
+.intro .overlay {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.features {
+  background: rgba(122, 8, 175, 0.2);
+}

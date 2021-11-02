@@ -12,55 +12,55 @@ import { MainPage, WriteComm, Config, EditForms} from './components';
 
 class App extends Component {
 
-  componentDidMount() {
-    this.handleLoad()
-  }
+  // componentDidMount() {
+  //   this.handleLoad()
+  // }
   
 state = {
   forms : {
-  //     venus : [
-  //         {
-  //             blockName: 'Planet Count',
-  //             desc: 'The number of planets',
-  //             wordLimit: 100,
-  //         },
-  //         {
-  //             blockName: 'Breakdown of planets by type',
-  //             desc: 'which are big and which are less big',
-  //             wordLimit: 100,
-  //         }
-  //     ],
-  //     mercury : [
-  //         {
-  //             blockName: 'Headline GDP',
-  //             desc: 'This is how GDP does that thingy',
-  //             wordLimit: 100,
-  //         },
-  //         {
-  //             blockName: 'Breakdown of GDP by dog breed',
-  //             desc: 'Each dog has its own GDP cause thats how GDP works',
-  //             wordLimit: 100,
-  //         }
-  //     ]
+      venus : [
+          {
+              blockName: 'Planet Count',
+              desc: 'The number of planets',
+              wordLimit: 100,
+          },
+          {
+              blockName: 'Breakdown of planets by type',
+              desc: 'which are big and which are less big',
+              wordLimit: 100,
+          }
+      ],
+      mercury : [
+          {
+              blockName: 'Headline GDP',
+              desc: 'This is how GDP does that thingy',
+              wordLimit: 100,
+          },
+          {
+              blockName: 'Breakdown of GDP by dog breed',
+              desc: 'Each dog has its own GDP cause thats how GDP works',
+              wordLimit: 100,
+          }
+      ]
   }
 } 
 
-  handleLoad = e => {
-        (async () => {
-            const data = await window.config.content;
-            console.log(data)
+  // handleLoad = e => {
+  //       (async () => {
+  //           const data = await window.config.content;
+  //           console.log(data)
 
-            this.setState({forms: data})
+  //           this.setState({forms: data})
 
-              })();
-    }
+  //             })();
+  //   }
 
     handleDeletingForm = form => {
       let currentState = {...this.state.forms}
       delete currentState[form]
       this.setState({forms: currentState})
       
-      window.config.saveApp(currentState);
+      // window.config.saveApp(currentState);
   }
 
   addForm = form => {
@@ -68,12 +68,12 @@ state = {
     currentState[form.formName] = form.questions
     this.setState({forms: currentState})
 
-    window.config.saveApp(currentState);
+    // window.config.saveApp(currentState);
 
   }
 
   saveCommentary = form => {
-    window.config.save_state(form);
+    // window.config.save_state(form);
   }
 
   render() {
