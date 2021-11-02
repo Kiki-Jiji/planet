@@ -68,8 +68,7 @@ state = {
     currentState[form.formName] = form.questions
     this.setState({forms: currentState})
 
-    let data2 = this.state.forms
-    window.config.saveApp(data2);
+    window.config.saveApp(currentState);
 
   }
 
@@ -77,21 +76,12 @@ state = {
     window.config.save_state(form);
   }
 
-  // saveState = e => {
-
-  //   let data = this.state.forms
-  //   window.config.save_state(data);
-  // }
-
   render() {
     return (
       <div className="App">
           <p>
             Planet <Badge bg="secondary">New</Badge>
           </p>
-
-          {/* <Button variant="primary" onClick={this.handleLoad}>Load</Button>
-          <Button variant="primary" onClick={this.saveState}>Save</Button> */}
 
           <HashRouter>
             <div>
