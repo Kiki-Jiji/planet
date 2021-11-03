@@ -12,34 +12,62 @@ code {
     monospace;
 }
 
-.intro {
+.red {
+  background: #c62368;
+}
 
-  background-image: url('./landing_page2.jpg');
-  background-size: cover;
+.start {
+  background: blue;
+}
+
+
+.dark {
+  background: #0f0f10;
+}
+
+section {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 300px;
+  padding-top: 100px;
+}
+
+
+
+.wave {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+}
+
+.wave svg {
+  position: relative;
+  display: block;
+  width: calc(103% + 1.3px);
+  height: 262px;
+}
+
+.wave .shape-fill {
+  fill: hsl(240, 3%, 6%);
+}
+
+.spacer {
+  aspect-ratio: 900/300;
+  width: 100%;
   background-repeat: no-repeat;
-  height: 1000px;
+  background-position: center;
+  background-size: cover;
 }
 
-.intro h1 {
-  font-family: "Raleway", sans-serif;
-  color: rgb(255, 255, 255);
-  font-size: 82px;
-  text-transform: uppercase;
-  line-height: 200px;
+.layer1 {
+  background-image: url(./layer1.svg);
 }
 
-.intro p {
-  font-family: "Raleway", sans-serif;
-  color: #fff;
-  font-size: 22px;
-  font-weight: 300;
-  line-height: 30px;
-}
-
-.intro .overlay {
-  background: rgba(0, 0, 0, 0.2);
-}
-
-.features {
-  background: rgba(122, 8, 175, 0.2);
+.purple {
+  background: #862789;
 }
