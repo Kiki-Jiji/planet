@@ -5,6 +5,7 @@ import Row from 'react-bootstrap/Row'
 import Col from 'react-bootstrap/Col'
 
 import AntDesign from './animation';
+import Solar from './solar';
 
 class MainPage extends React.Component {
   
@@ -12,18 +13,18 @@ class MainPage extends React.Component {
       return(
      
 
-            <Container fluid>
+            <Container className="page" fluid>
 
-        <AntDesign/>
+        <Solar/>
 
            <section className="dark">
-      <h1>Nice Curves!</h1>
-      <p>A website is like a road. The more curves it has the more interesting it is.</p>
+      <h1>Planets</h1>
+      <p>Commentary made easy</p>
     </section>
 
               <section className="red">
-      <h1>Nice Curves!</h1>
-      <p>A website is like a road. The more curves it has the more interesting it is.</p>
+      <h1>Markdown</h1>
+      <p>Write your commentary in markdown with a live editor</p>
 
       <div class="wave">
         <svg data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 120" preserveAspectRatio="none">
@@ -38,8 +39,8 @@ class MainPage extends React.Component {
     <div class="spacer layer1"></div>
 
     <section className="purple">
-      <h1>Nice Curves!</h1>
-      <p>A website is like a road. The more curves it has the more interesting it is.</p>
+      <h1>Save Commentary</h1>
+      <p>Commentary is saved as an easy to read json for intergration into downstream tools</p>
     </section>
 
        
