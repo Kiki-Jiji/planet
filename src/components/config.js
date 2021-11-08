@@ -63,9 +63,9 @@ class Config extends Component {
 
   render() {
     return (
-    <div className="container">
+    <div className="container config">
         <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Form Name" onChange={this.handleFormName} />
+          <input type="text" class="form-control" value={this.state.formName} onChange={this.handleFormName} />
         </div>
 
         {this.state.questions.map((question, index) => (

@@ -79,6 +79,9 @@ state = {
   render() {
     return (
       <div className="App">
+          <div id='stars'></div>
+          <div id='stars2'></div>
+          <div id='stars3'></div>
           <p>
             Planet <Badge bg="secondary">New</Badge>
           </p>

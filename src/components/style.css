@@ -2,3 +2,37 @@
 .h1 {
     color: antiquewhite;
 }
+
+.write {
+    color: #732f8a;   
+    font-weight: bolder;
+}
+
+.config {
+    color: #732f8a;   
+    font-weight: bolder;
+}
+
+.edit {
+    color: #732f8a;   
+    font-weight: bolder;
+}
+
+.editor-toolbar {
+    background: #ff00ae;
+}
+
+.btn {
+    background: #ff00ae;
+
+}
+
+.form-control {
+    background: #ca4bcb;
+    border-color: #f90dc1;
+    color: white !important;
+}
+
+.CodeMirror {
+    background: #f7d7ff;
+}

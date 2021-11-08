@@ -30,7 +30,7 @@ class EditForms extends React.Component {
         }
 
         return(
-            <Container>
+            <Container className="edit">
                 <Row>
                     <h1>Edit Forms</h1>
                     <h2> Delete an entire Form?</h2>

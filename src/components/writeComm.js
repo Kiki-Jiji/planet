@@ -5,6 +5,7 @@ import Container from 'react-bootstrap/Container';
 import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row'
 import Button from 'react-bootstrap/Button'
+import './style.css';
 
 class WriteComm extends React.Component {
 
@@ -67,7 +68,7 @@ class WriteComm extends React.Component {
 
         return(
             
-            <Container>
+            <Container className="write">
             <Row>
                 <Form.Select aria-label="Default select example" onChange={this.handleSelect}>
                 <option>Open this select menu</option>
