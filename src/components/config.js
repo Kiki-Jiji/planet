@@ -1,5 +1,7 @@
 import React from 'react';
 import { Fragment, Component } from "react"
+import Button from 'react-bootstrap/Button'
+import Modal from 'react-bootstrap/Modal'
 
 class Config extends Component {
         
@@ -9,7 +11,16 @@ class Config extends Component {
         desc: 'A descrption of the block goes here',
         wordLimit: 100,
     }],
-    formName : "Example Form Name"
+    formName : "Example Form Name",
+    show: false
+  }
+
+  handleClose = e => {
+    this.setState({show: false})
+  }
+
+  handleShow = e => {
+    this.setState({show: true})
   }
 
   handleText = i => e => {
@@ -62,8 +73,40 @@ class Config extends Component {
   
 
   render() {
+
     return (
+      
     <div className="container config">
+
+      <Button className = "help" variant="primary" onClick={this.handleShow}>
+        How to create a new form?
+      </Button>
+
+      <Modal show={this.state.show} onHide={this.handleClose}>
+        <Modal.Header closeButton>
+          <Modal.Title>New forms</Modal.Title>
+        </Modal.Header>
+        <Modal.Body>
+
+        Create a new form by 
+        <ul>
+          <li>Give your form a name- this is used to identify the form</li>
+          <li>Create your first block- this is a standalone unit of commentary.</li>
+          <li>Give the block a descrption which is shown alongside the block name</li>
+          <li>Create as many blocks as you need, select <Button> Add new block</Button> to create a new block</li>
+          <li>When you are finished select<Button> Save form </Button> to save the form</li>
+          <li>Go to write commentary and select your form to use it</li>
+        </ul>
+
+            
+        </Modal.Body>
+        <Modal.Footer>
+          <Button variant="secondary" onClick={this.handleClose}>
+            Close
+          </Button>
+        </Modal.Footer>
+      </Modal>
+
         <div class="input-group mb-3">
           <input type="text" class="form-control" value={this.state.formName} onChange={this.handleFormName} />
         </div>

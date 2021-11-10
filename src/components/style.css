@@ -6,16 +6,22 @@
 .write {
     color: #732f8a;   
     font-weight: bolder;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .config {
     color: #732f8a;   
     font-weight: bolder;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .edit {
     color: #732f8a;   
     font-weight: bolder;
+    padding-left: 200px;
+    padding-right: 200px;
 }
 
 .editor-toolbar {
@@ -35,4 +41,12 @@
 
 .CodeMirror {
     background: #f7d7ff;
+}
+
+.end-button {
+    margin-bottom: 100px;
+}
+
+.help {
+    margin: 10px;
 }

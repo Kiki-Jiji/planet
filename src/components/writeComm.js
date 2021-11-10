@@ -84,7 +84,7 @@ class WriteComm extends React.Component {
     
                     { formElements }
 
-                    <Button onClick={() => this.createCommentaryForm()}>Save Commentary?</Button>
+                    <Button className="end-button" onClick={() => this.createCommentaryForm()}>Save Commentary?</Button>
                 </Row>
             </Container>
         )
