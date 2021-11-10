@@ -12,9 +12,9 @@ import { MainPage, WriteComm, Config, EditForms} from './components';
 
 class App extends Component {
 
-  // componentDidMount() {
-  //   this.handleLoad()
-  // }
+  componentDidMount() {
+    this.handleLoad()
+  }
   
 state = {
   forms : {
@@ -45,22 +45,22 @@ state = {
   }
 } 
 
-  // handleLoad = e => {
-  //       (async () => {
-  //           const data = await window.config.content;
-  //           console.log(data)
+  handleLoad = e => {
+        (async () => {
+            const data = await window.config.content;
+            console.log(data)
 
-  //           this.setState({forms: data})
+            this.setState({forms: data})
 
-  //             })();
-  //   }
+              })();
+    }
 
     handleDeletingForm = form => {
       let currentState = {...this.state.forms}
       delete currentState[form]
       this.setState({forms: currentState})
       
-      // window.config.saveApp(currentState);
+      window.config.saveApp(currentState);
   }
 
   addForm = form => {
@@ -68,12 +68,12 @@ state = {
     currentState[form.formName] = form.questions
     this.setState({forms: currentState})
 
-    // window.config.saveApp(currentState);
+    window.config.saveApp(currentState);
 
   }
 
   saveCommentary = form => {
-    // window.config.save_state(form);
+    window.config.save_state(form);
   }
 
   render() {
@@ -82,10 +82,7 @@ state = {
           <div id='stars'></div>
           <div id='stars2'></div>
           <div id='stars3'></div>
-          <p>
-            Planet <Badge bg="secondary">New</Badge>
-          </p>
-
+  
           <HashRouter>
             <div>
               <Link to="/"><h2>Home</h2></Link>

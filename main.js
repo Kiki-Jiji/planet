@@ -1,10 +1,36 @@
-const { app, BrowserWindow, ipcMain } = require('electron');
+const { app, BrowserWindow, ipcMain, Menu, shell } = require('electron');
 const { writeFile, readFileSync, existsSync } = require('fs');
 const path = require('path');
 
 let win;
 
+const template = [
+  {
+      role: 'help',
+        submenu: [
+      {
+        label: 'About Editor Component',
+          click() {
+          shell.openExternal('https://simplemde.com/');
+        }}]
+      },
+      {
+        label: 'Create a New Form',
+        submenu: [{ 
+          label : 'Open Create Form Page',
+          click() {
+
+          }
+        }]
+    }
+  ];
+
+const appMenu  = Menu.buildFromTemplate(template)
+
+Menu.setApplicationMenu(appMenu);
+
 function createWindow() {
+
     win = new BrowserWindow({
          width: 800, 
          height: 600 ,
@@ -19,11 +45,14 @@ function createWindow() {
 
     // win.loadURL(`file://${__dirname}/build/index.html`);
     win.loadURL(`http://localhost:3000`);
+  
 }
 
 
 
-app.on('ready', createWindow);
+app.on('ready', () =>{
+  createWindow()
+} );
 
 app.on('window-all-closed', () => {
     if (process.platform !== 'darwin') {

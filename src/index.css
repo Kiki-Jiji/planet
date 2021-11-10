@@ -22,7 +22,7 @@ code {
 
 
 .dark {
-  background-image: linear-gradient(black, rgba(73, 27, 88, 0.8));
+  background-image: linear-gradient(black, rgb(120 26 113 / 79%));
 }
 
 section {
